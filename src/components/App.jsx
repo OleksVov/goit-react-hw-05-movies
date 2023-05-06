@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 import { Home } from "pages/Home/Home";
 import { Movie } from "pages/Movie/Movie";
 import { MovieDetails } from "pages/MovieDetails/MovieDetails";
@@ -10,16 +10,11 @@ import { NotFound } from "pages/NotFound";
 
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
+    <div>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/movie">Movie</Link>
+      </nav>
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/movie" element={<Movie />}/>

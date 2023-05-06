@@ -1,3 +1,11 @@
+import { Route, Routes } from "react-router-dom";
+import { Home } from "pages/Home/Home";
+import { Movie } from "pages/Movie/Movie";
+import { MovieDetails } from "pages/MovieDetails/MovieDetails";
+import { NotFound } from "pages/NotFound";
+
+
+
 export const App = () => {
   return (
     <div
@@ -10,7 +18,12 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      React homework template
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/movie" element={<Movie />}/>
+        <Route path="/movieDetails" element={<MovieDetails />}/>
+        <Route path="*" element={<NotFound />}/>
+      </Routes>
     </div>
   );
 };

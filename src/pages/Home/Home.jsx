@@ -10,11 +10,11 @@ useEffect(() => {
     async function getMovies() {
         const result = await fetchTrending();
         setMovies(result);
-        console.log(result);
+       
     }
     getMovies();
 },[]);
-console.log(movies);
+
     return (
        <div>
          <h1>Home</h1>

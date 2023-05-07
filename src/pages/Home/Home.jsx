@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { fetchTrending } from "service/api";
+import { MoviesList } from "components/MoviesList/MoviesList";
+
+
 export const Home = () => {
 const [movies, setMovies] = useState([]);
 
@@ -11,8 +14,11 @@ useEffect(() => {
     }
     getMovies();
 },[]);
-
+console.log(movies);
     return (
-        <h1>Home</h1>
+       <div>
+         <h1>Home</h1>
+        <MoviesList movies = {movies}/>
+       </div>
     )
 }

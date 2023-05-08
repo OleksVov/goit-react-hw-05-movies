@@ -14,3 +14,9 @@ export const fetchTrending = async() => {
 const response = await axios.get(`/trending/movie/week?api_key=${API_KEY}`);
 return response.data.results;
 }
+
+export const fetchMovieById = async(id) => {
+    const response = await axios.get(`/movie/${id}?api_key=${API_KEY}&language=en-US`);
+    console.log(response.data);
+    return response.data;
+}

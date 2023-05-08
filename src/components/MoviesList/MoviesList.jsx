@@ -12,6 +12,8 @@ export const MoviesList = ({movies}) => {
                     <li key={movie.id}>
               <Link to={`movie/${movie.id}`}>
               <img src={IMAGES_BASE_URL + movie.poster_path} alt={movie.title} />
+              <p>{movie.title}</p>
+
               </Link>
                 </li>
                             

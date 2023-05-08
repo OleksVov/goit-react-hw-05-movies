@@ -1,29 +1,32 @@
-import { Outlet, Link, useParams } from "react-router-dom";
+import { Outlet, Link, useParams, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchMovieById } from "service/api";
 import { MovieCard } from "components/MovieCard/MovieCard";
+import { BackLink } from "components/BackLink/BackLink";
 
 export const MovieDetails = () => {
 
     const [movie, setMovie] = useState({});
-    const { id } = useParams();
-    console.log(id);
+    const {movieId} = useParams();
+    const location = useLocation();
+    const backLinkHref = location.state?.from ?? {pathname: '/'};
+
 
     useEffect(() => {
         const getMovie = async() => {
-            const result = await fetchMovieById(758323);
+            const result = await fetchMovieById(movieId);
             setMovie(result);
            
         }
         getMovie();
-    },[id]);
+    },[movieId]);
 
-    
+
     return (
         <div>
-            <h2>Detail</h2>
+            <BackLink to={backLinkHref}> Back to movies</BackLink>
             <MovieCard movie= {movie}/>
-           
+            <h2>Additional information</h2>
             <ul>
                 <li>
                     <Link to="cast">Cast</Link>

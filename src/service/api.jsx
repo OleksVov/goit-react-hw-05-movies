@@ -20,3 +20,27 @@ export const fetchMovieById = async(id) => {
     console.log(response.data);
     return response.data;
 }
+
+export const fetchCast = async(id) => {
+    const response = await axios.get(`/movie/${id}/credits?api_key=${API_KEY}&language=en-US`);
+    console.log(response.data);
+    return response.data.cast;
+}
+
+export const fetchReviews = async(id) => {
+    const response = await axios.get(`/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`);
+    console.log(response.data);
+    return response.data.results;
+}
+
+export const fetchGenres = async() => {
+    const response = await axios.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US`);
+    console.log(response.data);
+    return response.data;
+}
+
+export const searchMovie = async(query) => {
+    const response = await axios.get(`/search/movie?api_key=${API_KEY}&${query}&language=en-US&page=1&include_adult=false`);
+    console.log(response.data);
+    return response.data.results;
+}

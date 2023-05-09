@@ -12,7 +12,7 @@ export const Searchbar = () => {
         <input
           className={css.input}
           type="text"
-          name="searchImages"
+          name="searchMovie"
           autoComplete="off"
           autoFocus
           placeholder="Search movie"

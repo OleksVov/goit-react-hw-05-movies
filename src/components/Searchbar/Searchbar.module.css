@@ -3,19 +3,20 @@
     align-items: center;
     width: 100%;
     max-width: 600px;
-    background-color: #cf9a9a;
-    border-radius: 10px;
+    background-color: #ffffff;
+    border-radius: 3px;
     border-color: black;
-    overflow: hidden;
+    border-style: solid;
+    /* overflow: hidden; */
   }
   
   .button {
     display: inline-block;
-    width: 48px;
+    width: 100px;
     height: 48px;
     border: 0;
     background-image: url('/src/image/magnifying-glass-svgrepo-com.svg');
-    background-size: 40%;
+    background-size: 30%;
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.6;

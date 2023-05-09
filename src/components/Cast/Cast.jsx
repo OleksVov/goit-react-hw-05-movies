@@ -15,7 +15,7 @@ const {movieId} = useParams();
         }
         getCast();
     },[movieId]);
-console.log(cast);
+
 
 
     return (
@@ -25,8 +25,8 @@ console.log(cast);
             <ul>
             {cast.map(item => (
                 <li key={item.id}>
-                  <img src={`https://image.tmdb.org/t/p/w200/${item.profile_path
-}`} alt={item.name} />
+                 {item.profile_path && ( <img src={`https://image.tmdb.org/t/p/w200/${item.profile_path
+}`} alt={item.name} />)}
 <p>{item.name}</p>
                 </li>
             ))}

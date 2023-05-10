@@ -1,20 +1,21 @@
 import React from "react";
+// import { useState } from "react";
 import css from './Searchbar.module.css'
 
 
-export const Searchbar = ({value, onChange}) => {
 
+export const Searchbar = ({ onSubmit}) => {
 
   
     return (
      
-          <form className={css.form}>
+          <form className={css.form} onSubmit={(e) => onSubmit(e.target.value)} >
        <input
          className={css.input}
          type="text"
-         value={value}
-         onChange={(evt) => onChange(evt.target.value)}
-         name="searchMovie"
+        //  value={value}
+        //  onChange={(e) => onChange(e.target.value)}
+         name="query"
          autoComplete="off"
          autoFocus
          placeholder="Search movie"

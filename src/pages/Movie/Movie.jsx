@@ -10,9 +10,8 @@ export const Movie = () => {
 const[searchMovies, setSearchMovies] = useState([]);
 const [searchParams, setSearchParams] = useSearchParams('');
 const location = useLocation();
-const query = searchParams.get("query") ?? '';
+// const nameMovie = searchParams.get("query") ?? '';
 
-console.log(searchMovies);
 
 const updateQueryString = (query) => {
     if (!query) {
@@ -21,6 +20,13 @@ const updateQueryString = (query) => {
     const nextParams = query !== "" ? { query } : {};
     setSearchParams(nextParams);
   };
+
+// const updateQueryString = evt => {
+//     if (evt.target.value === "") {
+//         return setSearchParams({});
+//     }
+//     setSearchParams({query: evt.target.value })
+// }
 
 useEffect(() => {
     if (!searchParams.get("query")) {
@@ -38,10 +44,11 @@ useEffect(() => {
    }
 },[searchParams]);
 
- 
+
     return (
        <div>
-<Searchbar onChange = {updateQueryString} value={searchMovie}/>
+<Searchbar onSubmit = {updateQueryString}/>
+
 <MoviesList movies={searchMovies} location={location}/>
 </div>
     )

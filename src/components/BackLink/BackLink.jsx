@@ -8,13 +8,15 @@ const StyledLink = styled(Link)`
   align-items: center;
   gap: 4px;
   padding: 8px 0;
-  color: black;
+  color: orange;
+  opacity: 0.7;
   text-decoration: none;
   font-weight: 500;
   text-transform: uppercase;
 
   :hover {
-    color: blue;
+    color: orange;
+    opacity: 1;
   }
 `;
 

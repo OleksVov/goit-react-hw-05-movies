@@ -10,7 +10,7 @@ export const SharedLayout = () => {
      <Logo>
         <ImFilm 
         size='30'
-        color = 'blue'/>       
+        color = 'orange'/>       
         </Logo>
      </a>
       

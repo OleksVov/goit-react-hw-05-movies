@@ -10,7 +10,7 @@ export const Movie = () => {
 const[searchMovies, setSearchMovies] = useState([]);
 const [searchParams, setSearchParams] = useSearchParams('');
 const location = useLocation();
-// const query = searchParams.get("query") ?? '';
+const query = searchParams.get("query") ?? '';
 
 console.log(searchMovies);
 
@@ -41,7 +41,7 @@ useEffect(() => {
  
     return (
        <div>
-<Searchbar onChange = {updateQueryString}/>
+<Searchbar onChange = {updateQueryString} value={searchMovie}/>
 <MoviesList movies={searchMovies} location={location}/>
 </div>
     )

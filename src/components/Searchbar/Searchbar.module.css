@@ -3,30 +3,35 @@
     align-items: center;
     width: 100%;
     max-width: 600px;
-    background-color: #ffffff;
-    border-radius: 3px;
+    background-color: rgb(130, 133, 141);
+    margin-bottom: 20px;
+    /* border-radius: 3px;
     border-color: black;
     border-style: solid;
-    /* overflow: hidden; */
+    overflow: hidden; */
   }
   
   .button {
     display: inline-block;
-    width: 100px;
-    height: 48px;
-    border: 0;
+    width: 150px;
+    height: 40px;
+    border-radius: 3px;
+    border-color: orange;
+    border-style: solid;
     background-image: url('/src/image/magnifying-glass-svgrepo-com.svg');
-    background-size: 30%;
+    background-size: 25%;
     background-repeat: no-repeat;
     background-position: center;
-    opacity: 0.6;
+    background-color: rgb(130, 133, 141);
+    /* opacity: 0.6; */
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-    outline: none;
+    /* outline: none; */
   }
   
   .button:hover {
     opacity: 1;
+    background-color: orange;
   }
   
   .buttonLabel {
@@ -44,12 +49,18 @@
   .input {
     display: inline-block;
     width: 100%;
+    height: 40px;
     font: inherit;
     font-size: 20px;
-    border: none;
-    outline: none;
+    /* border: none;
+    outline: none; */
     padding-left: 4px;
     padding-right: 4px;
+    margin-right: 40px;
+    background-color: rgb(130, 133, 141);
+    border-radius: 3px;
+    border-color: orange;
+    border-style: solid;
   }
   
   .input::placeholder {

@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
   max-width: 1260px;
   margin: 0 auto;
+  background-color: rgb(130, 133, 141);
   padding: 0 16px;
 `;
 
@@ -35,6 +36,6 @@ export const Link = styled(NavLink)`
 
   &.active {
     color: white;
-    background-color: #8a8c8d;
+    background-color: orange;
   }
 `;

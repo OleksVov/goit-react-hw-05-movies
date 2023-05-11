@@ -5,7 +5,7 @@ export const Container = styled.div`
   max-width: 100%;
   margin: 0 auto;
   background-color: rgb(130, 133, 141);
-  padding: 0 50px;
+  padding: 20px 50px;
 `;
 
 export const Header = styled.header`

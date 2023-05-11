@@ -1,0 +1,13 @@
+.cardBox {
+    display: flex;
+}
+
+.infoBox {
+    margin-left: 30px;
+}
+
+.genresList {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}

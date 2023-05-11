@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { fetchMovieById } from "service/api";
 import { MovieCard } from "components/MovieCard/MovieCard";
 import { BackLink } from "components/BackLink/BackLink";
+import css from "./MovieDetails.module.css"
 // import { NotFound } from "pages/NotFound";
 
 
@@ -16,6 +17,7 @@ const MovieDetails = () => {
     const location = useLocation();
     // const backLinkHref = location.state?.from ?? {pathname: '/'};
 const backLinkLocationRef = useRef(location.state?.from ?? {pathname: '/'});
+
 
     useEffect(() => {
         try {
@@ -50,12 +52,12 @@ const backLinkLocationRef = useRef(location.state?.from ?? {pathname: '/'});
         <div>
         <BackLink to={backLinkLocationRef.current}>Go back</BackLink>
         <MovieCard movie= {movie} genres= {genres}/>
-        <h2>Additional information</h2>
+        <h3>Additional information</h3>
         <ul>
-            <li>
+            <li className={css.ItemSubPage}>
                 <Link to="cast" state={{ from: backLinkLocationRef}}>Cast</Link>
             </li>
-            <li>
+            <li className={css.ItemSubPage}>
                 <Link to="reviews" state={{ from: backLinkLocationRef}}>Reviews</Link>
             </li>
         </ul>

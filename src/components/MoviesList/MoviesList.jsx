@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import css from './MoviesList.module.css';
 import NoImagePlaceholder from '../../image/NoImagePlaceholder.png'
 const IMAGES_BASE_URL = 'https://image.tmdb.org/t/p/w200/';
@@ -22,4 +23,8 @@ export const MoviesList = ({movies, location}) => {
         </ul>
         </div>
     )
+};
+MoviesList.propTypes = {
+    location: PropTypes.object.isRequired,
+    movies: PropTypes.array.isRequired,
 }

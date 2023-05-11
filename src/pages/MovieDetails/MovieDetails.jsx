@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { fetchMovieById } from "service/api";
 import { MovieCard } from "components/MovieCard/MovieCard";
 import { BackLink } from "components/BackLink/BackLink";
+import { Loader } from "components/Loader/Loader";
 import css from "./MovieDetails.module.css"
 // import { NotFound } from "pages/NotFound";
 
@@ -61,7 +62,7 @@ const backLinkLocationRef = useRef(location.state?.from ?? {pathname: '/'});
                 <Link to="reviews" state={{ from: backLinkLocationRef}}>Reviews</Link>
             </li>
         </ul>
-        <Suspense fallback={<div>Loading page...</div>}>
+        <Suspense fallback={<Loader/>}>
         <Outlet />
       </Suspense>
        

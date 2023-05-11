@@ -1,4 +1,5 @@
-import NoImagePlaceholder from '../../image/NoImagePlaceholder.png'
+import NoImagePlaceholder from '../../image/NoImagePlaceholder.png';
+import PropTypes from 'prop-types';
 import css from "./MovieCard.module.css"
 export const MovieCard = ({movie,genres}) => {
     const {title, release_date, poster_path, overview, vote_average} = movie;
@@ -25,4 +26,8 @@ export const MovieCard = ({movie,genres}) => {
             
         </div>
     )
+};
+MovieCard.propTypes = {
+    movie: PropTypes.object.isRequired,
+    genres: PropTypes.array.isRequired,
 }

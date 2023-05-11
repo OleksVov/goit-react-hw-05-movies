@@ -1,10 +1,12 @@
-import { fetchCast } from "service/api";
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { fetchCast } from "service/api";
 
-export const Cast = ()  => {
+const Cast = ()  => {
 const [cast, setCast] = useState([]);
 const {movieId} = useParams();
+// const location = useLocation();
 
 
     useEffect(() => {
@@ -35,3 +37,5 @@ const {movieId} = useParams();
         </div>
     )
 }
+
+export default Cast;

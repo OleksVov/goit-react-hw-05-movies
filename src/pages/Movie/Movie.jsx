@@ -6,7 +6,7 @@ import { MoviesList } from "components/MoviesList/MoviesList";
 import { searchMovie }  from "service/api";
 
 
-export const Movie = () => {
+const Movie = () => {
 const[searchMovies, setSearchMovies] = useState([]);
 const [searchParams, setSearchParams] = useSearchParams('');
 const location = useLocation();
@@ -53,4 +53,6 @@ useEffect(() => {
 </div>
     )
        
-}
+};
+
+export default Movie;

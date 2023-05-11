@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { fetchTrending } from "service/api";
 import { MoviesList } from "components/MoviesList/MoviesList";
 
 
-export const Home = () => {
+const Home = () => {
 const [movies, setMovies] = useState([]);
+const location = useLocation();
 
 useEffect(() => {
     async function getMovies() {
@@ -17,7 +19,10 @@ useEffect(() => {
 
     return (
        <div>
-        <MoviesList movies = {movies}/>
+        <MoviesList movies = {movies} location={location}/>
        </div>
     )
-}
+};
+
+
+export default Home;

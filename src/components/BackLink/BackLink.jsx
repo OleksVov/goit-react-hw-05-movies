@@ -22,7 +22,7 @@ const StyledLink = styled(Link)`
 
 export const BackLink = ({ to, children }) => {
   return (
-    <StyledLink to={to}>
+    <StyledLink to={to || '/'}>
       <HiChevronDoubleLeft size="24" />
       {children}
     </StyledLink>

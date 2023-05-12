@@ -31,7 +31,7 @@ useEffect(() => {
    try {
 
     const getSearchMovie = async() => {
-        const result = await searchMovie(searchForm);
+        const result = await searchMovie(searchParams);
         setSearchMovies(result);
     };
     getSearchMovie();
@@ -65,7 +65,7 @@ setSearchForm(nameMovie);
          type="text"
          value={nameMovie}
          onChange={updateQueryString}
-        //  name="query"
+         name="query"
          autoComplete="off"
          autoFocus
          placeholder="Search movie"

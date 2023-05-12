@@ -11,8 +11,7 @@ const[searchMovies, setSearchMovies] = useState([]);
 const [searchParams, setSearchParams] = useSearchParams('');
 const location = useLocation();
 const nameMovie = searchParams.get("query") ?? '';
-const[searchForm, setSearchForm] = useState(nameMovie);
-
+const[searchForm, setSearchForm] = useState();
 
 
 // const updateQueryString = (query) => {
@@ -24,22 +23,21 @@ const[searchForm, setSearchForm] = useState(nameMovie);
 //   };
 
 
-
 useEffect(() => {
     if (!searchForm) {
         return
     }
    try {
+
     const getSearchMovie = async() => {
         const result = await searchMovie(searchParams);
         setSearchMovies(result);
-        
     };
     getSearchMovie();
    } catch (error) {
     console.log(error);
    }
-},[searchForm]);
+},[searchForm, searchParams]);
 
 
 const updateQueryString = evt => {
@@ -47,6 +45,7 @@ const updateQueryString = evt => {
         return setSearchParams({});
     }
     setSearchParams({query: evt.target.value });
+
 }
 
 const handleSubmit = evt => {

@@ -1,14 +1,15 @@
 // import React from "react";
 import { useEffect, useState } from "react";
 import { useSearchParams, useLocation } from "react-router-dom";
-import { Searchbar } from "components/Searchbar/Searchbar";
+// import { Searchbar } from "components/Searchbar/Searchbar";
 import { MoviesList } from "components/MoviesList/MoviesList";
 import { searchMovie }  from "service/api";
+import css from '../../components/Searchbar/Searchbar.module.css'
 
 
 const Movie = () => {
 const[searchMovies, setSearchMovies] = useState([]);
-const [searchParams, setSearchParams] = useSearchParams('');
+const [searchParams, setSearchParams] = useSearchParams();
 const location = useLocation();
 const nameMovie = searchParams.get("query") ?? '';
 const[searchForm, setSearchForm] = useState(nameMovie);
@@ -30,14 +31,14 @@ useEffect(() => {
    try {
 
     const getSearchMovie = async() => {
-        const result = await searchMovie(searchParams);
+        const result = await searchMovie(searchForm);
         setSearchMovies(result);
     };
     getSearchMovie();
    } catch (error) {
     console.log(error);
    }
-},[searchForm, searchParams]);
+},[searchForm]);
 
 
 const updateQueryString = evt => {
@@ -56,7 +57,23 @@ setSearchForm(nameMovie);
 
     return (
        <div>
-<Searchbar onChange = {updateQueryString} value={nameMovie} onSubmit={handleSubmit}/>
+{/* <Searchbar onChange = {updateQueryString} value={nameMovie} onSubmit={handleSubmit}/> */}
+
+<form className={css.form} onSubmit={handleSubmit} >
+       <input
+         className={css.input}
+         type="text"
+         value={nameMovie}
+         onChange={updateQueryString}
+        //  name="query"
+         autoComplete="off"
+         autoFocus
+         placeholder="Search movie"
+       />
+        <button type="submit" className={css.button}>
+<span className={css.buttonLabel}>Search</span>
+</button>
+     </form>
 
 <MoviesList movies={searchMovies} location={location}/>
 </div>

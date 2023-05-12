@@ -4,16 +4,12 @@ import { useSearchParams, useLocation } from "react-router-dom";
 import { Searchbar } from "components/Searchbar/Searchbar";
 import { MoviesList } from "components/MoviesList/MoviesList";
 import { searchMovie }  from "service/api";
-// import css from '../../components/Searchbar/Searchbar.module.css'
-
 
 const Movie = () => {
 const[searchMovies, setSearchMovies] = useState([]);
 const [searchParams, setSearchParams] = useSearchParams();
 const location = useLocation();
 // const nameMovie = searchParams.get("query") ?? '';
-// const[searchForm, setSearchForm] = useState(nameMovie);
-
 
 // const updateQueryString = (query) => {
 //     if (!query) {
@@ -49,31 +45,9 @@ const updateQueryString = evt => {
 
 }
 
-// const handleSubmit = evt => {
-// evt.preventDefault();
-// setSearchForm(nameMovie);
-// }
-
-
     return (
        <div>
 <Searchbar updateQueryString = {updateQueryString} />
-
-{/* <form className={css.form} onSubmit={handleSubmit} >
-       <input
-         className={css.input}
-         type="text"
-         value={nameMovie}
-         onChange={updateQueryString}
-         name="query"
-         autoComplete="off"
-         autoFocus
-         placeholder="Search movie"
-       />
-        <button type="submit" className={css.button}>
-<span className={css.buttonLabel}>Search</span>
-</button>
-     </form> */}
 
 <MoviesList movies={searchMovies} location={location}/>
 </div>

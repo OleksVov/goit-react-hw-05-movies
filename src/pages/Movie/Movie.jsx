@@ -1,18 +1,18 @@
 // import React from "react";
 import { useEffect, useState } from "react";
 import { useSearchParams, useLocation } from "react-router-dom";
-// import { Searchbar } from "components/Searchbar/Searchbar";
+import { Searchbar } from "components/Searchbar/Searchbar";
 import { MoviesList } from "components/MoviesList/MoviesList";
 import { searchMovie }  from "service/api";
-import css from '../../components/Searchbar/Searchbar.module.css'
+// import css from '../../components/Searchbar/Searchbar.module.css'
 
 
 const Movie = () => {
 const[searchMovies, setSearchMovies] = useState([]);
 const [searchParams, setSearchParams] = useSearchParams();
 const location = useLocation();
-const nameMovie = searchParams.get("query") ?? '';
-const[searchForm, setSearchForm] = useState(nameMovie);
+// const nameMovie = searchParams.get("query") ?? '';
+// const[searchForm, setSearchForm] = useState(nameMovie);
 
 
 // const updateQueryString = (query) => {
@@ -25,7 +25,7 @@ const[searchForm, setSearchForm] = useState(nameMovie);
 
 
 useEffect(() => {
-    if (!searchForm) {
+    if (!searchParams.get("query")) {
         return
     }
    try {
@@ -38,7 +38,7 @@ useEffect(() => {
    } catch (error) {
     console.log(error);
    }
-},[searchForm]);
+},[searchParams]);
 
 
 const updateQueryString = evt => {
@@ -49,17 +49,17 @@ const updateQueryString = evt => {
 
 }
 
-const handleSubmit = evt => {
-evt.preventDefault();
-setSearchForm(nameMovie);
-}
+// const handleSubmit = evt => {
+// evt.preventDefault();
+// setSearchForm(nameMovie);
+// }
 
 
     return (
        <div>
-{/* <Searchbar onChange = {updateQueryString} value={nameMovie} onSubmit={handleSubmit}/> */}
+<Searchbar updateQueryString = {updateQueryString} />
 
-<form className={css.form} onSubmit={handleSubmit} >
+{/* <form className={css.form} onSubmit={handleSubmit} >
        <input
          className={css.input}
          type="text"
@@ -73,7 +73,7 @@ setSearchForm(nameMovie);
         <button type="submit" className={css.button}>
 <span className={css.buttonLabel}>Search</span>
 </button>
-     </form>
+     </form> */}
 
 <MoviesList movies={searchMovies} location={location}/>
 </div>

@@ -4,17 +4,17 @@ import css from './Searchbar.module.css'
 
 
 
-export const Searchbar = ({ onSubmit}) => {
+export const Searchbar = ({ onSubmit, onChange, value}) => {
 
   
     return (
      
-          <form className={css.form} onSubmit={(e) => onSubmit(e.target.value)} >
+          <form className={css.form} onSubmit={onSubmit} >
        <input
          className={css.input}
          type="text"
-        //  value={value}
-        //  onChange={(e) => onChange(e.target.value)}
+         value={value}
+         onChange={onChange}
          name="query"
          autoComplete="off"
          autoFocus

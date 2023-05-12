@@ -10,26 +10,23 @@ const Movie = () => {
 const[searchMovies, setSearchMovies] = useState([]);
 const [searchParams, setSearchParams] = useSearchParams('');
 const location = useLocation();
-// const nameMovie = searchParams.get("query") ?? '';
+const nameMovie = searchParams.get("query") ?? '';
+const[searchForm, setSearchForm] = useState(nameMovie);
 
 
-const updateQueryString = (query) => {
-    if (!query) {
-        return;
-    }
-    const nextParams = query !== "" ? { query } : {};
-    setSearchParams(nextParams);
-  };
 
-// const updateQueryString = evt => {
-//     if (evt.target.value === "") {
-//         return setSearchParams({});
+// const updateQueryString = (query) => {
+//     if (!query) {
+//         return;
 //     }
-//     setSearchParams({query: evt.target.value })
-// }
+//     const nextParams = query !== "" ? { query } : {};
+//     setSearchParams(nextParams);
+//   };
+
+
 
 useEffect(() => {
-    if (!searchParams.get("query")) {
+    if (!searchForm) {
         return
     }
    try {
@@ -42,12 +39,25 @@ useEffect(() => {
    } catch (error) {
     console.log(error);
    }
-},[searchParams]);
+},[searchForm]);
+
+
+const updateQueryString = evt => {
+    if (evt.target.value === "") {
+        return setSearchParams({});
+    }
+    setSearchParams({query: evt.target.value });
+}
+
+const handleSubmit = evt => {
+evt.preventDefault();
+setSearchForm(nameMovie);
+}
 
 
     return (
        <div>
-<Searchbar onSubmit = {updateQueryString}/>
+<Searchbar onChange = {updateQueryString} value={nameMovie} onSubmit={handleSubmit}/>
 
 <MoviesList movies={searchMovies} location={location}/>
 </div>

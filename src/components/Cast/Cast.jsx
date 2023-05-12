@@ -24,15 +24,18 @@ const {movieId} = useParams();
 
         <div>
             <h2>Cast:</h2>
-            <ul>
-            {cast.map(item => (
-                <li key={item.id}>
-                 {item.profile_path && ( <img src={`https://image.tmdb.org/t/p/w200/${item.profile_path
+            {(!cast.length && (
+    <p>We don't have any cast for this movie</p>
+)) || (<ul>
+    {cast.map(item => (
+        <li key={item.id}>
+        {item.profile_path && ( <img src={`https://image.tmdb.org/t/p/w200/${item.profile_path
 }`} alt={item.name} />)}
 <p>{item.name}</p>
-                </li>
-            ))}
-            </ul>
+       </li>
+    ))}
+    </ul>)}
+           
             
         </div>
     )

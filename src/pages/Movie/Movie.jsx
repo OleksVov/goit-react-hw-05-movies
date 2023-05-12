@@ -11,7 +11,7 @@ const[searchMovies, setSearchMovies] = useState([]);
 const [searchParams, setSearchParams] = useSearchParams('');
 const location = useLocation();
 const nameMovie = searchParams.get("query") ?? '';
-const[searchForm, setSearchForm] = useState();
+const[searchForm, setSearchForm] = useState(nameMovie);
 
 
 // const updateQueryString = (query) => {
